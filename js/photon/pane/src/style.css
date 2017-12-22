@@ -2,3 +2,7 @@ header{
   -webkit-app-region : drag;
   -webkit-user-select : none;
 }
+
+.my-sidebar{
+  background-color: #000000;
+}
