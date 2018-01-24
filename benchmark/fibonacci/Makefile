@@ -3,6 +3,9 @@ all: fibonacci.cpp
 	g++ fibonacci.cpp -o fibonacci
 	g++ fibonacci.cpp -o fibonaccio3 -O3
 	javac Fibonacci.java
+	@cd nodejs_nan
+	npm install
+	@cd ..
 	@echo -- compile end --
 	@echo [C++]
 	@./fibonacci
@@ -12,6 +15,7 @@ all: fibonacci.cpp
 	@python3 fibonacci.py
 	@echo [java]
 	@java Fibonacci
+	@nodejs nodejs_nan/fibonacci.js
 
 clean:
 	rm -f fibonacci fibonaccio3 Fibonacci.class
