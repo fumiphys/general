@@ -40,6 +40,7 @@ int main(){
       exit(-1);
     }else if(pid == 0){
       execvp(argv[0], argv);
+      perror("error at child process");
       exit(-1);
     }else{
       wait(&status);
