@@ -9,14 +9,13 @@
 
 int main(){
   int argc = 0;
-  char buf[1024];
   char input[MAX_LEN];
   char *argv[MAX_ARGS], *cp;
   int status;
   const char *delimiter = " \t\n";
 
   while(1){
-    printf(">>");
+    printf(">> ");
     if(fgets(input, sizeof(input), stdin) == NULL){
       printf("Bye.\n");
       exit(0);
@@ -34,16 +33,25 @@ int main(){
       exit(0);
     }
 
-    pid_t pid = fork();
-    if(pid < 0){
-      perror("error while fork");
-      exit(-1);
-    }else if(pid == 0){
-      execvp(argv[0], argv);
-      perror("error at child process");
-      exit(-1);
+    if(strcmp(argv[0], "cd") == 0){
+      if(argv[1]){
+        if(chdir(argv[1]) != 0){
+          fprintf(stderr, "error while change directory\n");
+        }
+      }else{
+      }
     }else{
-      wait(&status);
+      pid_t pid = fork();
+      if(pid < 0){
+        perror("error while fork");
+        exit(-1);
+      }else if(pid == 0){
+        execvp(argv[0], argv);
+        perror("error at child process");
+        exit(-1);
+      }else{
+        wait(&status);
+      }
     }
   }
 }
