@@ -15,7 +15,10 @@ all: fibonacci.cpp
 	@python3 fibonacci.py
 	@echo [java]
 	@java Fibonacci
-	@nodejs nodejs_nan/fibonacci.js
+	@echo [nodejs + C++]
+	@node nodejs_nan/fibonacci.js
+	@echo [nodejs]
+	@node fibonacci.js
 
 clean:
 	rm -f fibonacci fibonaccio3 Fibonacci.class
