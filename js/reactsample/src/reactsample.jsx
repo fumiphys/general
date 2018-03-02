@@ -24,15 +24,12 @@ class Instancereact extends React.Component {
       <div>
         <input type="text" onChange={this.onChange.bind(this)} />
         <p>{this.state.innertext}</p>
+        <App />
       </div>
     )
   }
 }
 
-//ReactDOM.render(
-//  <App />,
-//  document.getElementById("samplediv")
-//)
 
 ReactDOM.render(
   <Instancereact />,
