@@ -24,7 +24,12 @@ fn main() {
         Philosopher::new("fumiphys"),
         Philosopher::new("fumifumi"),
     ];
-    for ph in &p{
-        ph.eat();
+    let handles: Vec<_> = p.into_iter().map(|ph| {
+        thread::spawn(move || {
+            ph.eat();
+        })
+    }).collect();
+    for h in handles {
+        h.join().unwrap();
     }
 }
