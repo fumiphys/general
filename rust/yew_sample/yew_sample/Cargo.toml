@@ -1,0 +1,8 @@
+[package]
+name = "yew_sample"
+version = "0.1.0"
+authors = ["fumiphys <ufimihot2703@gmail.com>"]
+
+[dependencies]
+stdweb = "*"
+yew = { git = "https://github.com/DenisKolodin/yew" }
