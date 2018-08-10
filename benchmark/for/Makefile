@@ -3,6 +3,7 @@ all: for.cpp for.py
 	g++ for.cpp -o forcpp
 	g++ for.cpp -o forcppo3 -O3
 	javac For.java
+	rustc -O for.rs
 	@echo -- compile end --
 	@echo [C++]
 	@./forcpp
@@ -12,6 +13,7 @@ all: for.cpp for.py
 	@python3 for.py
 	@echo [java]
 	@java For
+	@./for
 
 clean:
 	rm -f forcpp forcppo3 For.class
